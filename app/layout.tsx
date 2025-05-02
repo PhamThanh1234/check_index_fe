@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { MantineProvider } from '@mantine/core';
 import "./globals.css";
+import { AppTheme } from "./theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+         <MantineProvider defaultColorScheme="light" theme={AppTheme}>
+         {children}
+         </MantineProvider>
+       
+        
       </body>
     </html>
   );

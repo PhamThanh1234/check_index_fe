@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mantine-color-body: #F5F9FF !important;
+  --mantine-color-text: #414042 !important;
+  --mantine-primary-color-filled: #0089CF !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+[data-mantine-color-scheme="dark"] {
+  --mantine-color-body: #121212 !important;
+  --mantine-color-text: #c7c7c7 !important;
+}
+
+.bg-custom-box {
+  background-color: white !important; /* Màu nền Light Mode */
+}
+
+.bg-td-hover:hover {
+  background-color: white !important;
+}
+
+.flex-nowrap{
+  flex-wrap: nowrap !important;
+}
+
+.bg-custom-select {
+  background-color: #f3f3f3 !important; /* Màu nền Light Mode */
+}
+
+.bg-custom-select-hover:hover {
+  background-color: #f3f3f3 !important; /* Màu nền Light Mode */
+}
+
+[data-mantine-color-scheme="dark"] .bg-custom-box {
+  background-color: black !important; /* Màu nền Dark Mode */
+}
+
+[data-mantine-color-scheme="dark"] .bg-td-hover:hover {
+  background-color: black !important; /* Màu nền Dark Mode */
+}
+
+[data-mantine-color-scheme="dark"] .bg-custom-select {
+  background-color: #2E2E2E !important; /* Màu nền Dark Mode */
+}
+
+[data-mantine-color-scheme="dark"] .bg-custom-select-hover:hover {
+  background-color: #2E2E2E !important; /* Màu nền Dark Mode */
+}
+
+.bg-custom-header-table{
+  background-color:#FAFAFA !important;
+}
+
+[data-mantine-color-scheme="dark"] .bg-custom-header-table {
+  background-color: black !important; /* Màu nền Dark Mode */
+}
+
+.bg-custom-link-hover:hover {
+  background-color: #f8f8f8 !important; /* Màu nền Light Mode */
+}
+
+[data-mantine-color-scheme="dark"] .bg-custom-link-hover:hover {
+  background-color: black !important; /* Màu nền Dark Mode */
+}
+
+/*  */
+.dark-logo {
+  display: none;
+}
+
+[data-mantine-color-scheme="dark"] .dark-logo {
+  display: block;
+}
+
+.light-logo {
+  display: block;
+}
+
+
+[data-mantine-color-scheme="dark"] .light-logo {
+  display: none;
+}
+
+/* setup color chung cho thẻ a khi hover */
+a:hover{
+  color: #0089CF;
+}
+
+[data-mantine-color-scheme="dark"] a:hover {
+  color: #C7C7C7;
+}
+
+.bg-global{
+ background-color: var(--mantine-primary-color-filled);
+}
+
+/* animation động */
+.glow-button {
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s ease;
+  animation: transform  2s infinite;
+}
+
+@keyframes transform {
+  0% {
+    box-shadow: 0 0 0px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(0, 123, 255, 0.5);
+  }
 }
