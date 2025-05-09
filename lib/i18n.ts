@@ -165,6 +165,7 @@ export const translations = {
       password_confirm_not_match: "Confirm password does not match",
     },
     titles: { 
+      twofa: "Authenticator - Get the code from the 2FA string",
       welcome_back: "Welcome back",
       account: "Account",
       signUp: "Sign up",
@@ -226,7 +227,8 @@ export const translations = {
       update_your_personal_details_below: "Update your personal details below",
       you_have_selected: "You have selected",
       comming_soon: "Comming soon",
-      text_confirm: "This action is so important that you are required to confirm it with a modal. Please click one of these buttons to proceed"
+      text_confirm: "This action is so important that you are required to confirm it with a modal. Please click one of these buttons to proceed",
+      twofatext: "OTP:",
     },
     placeholders: {
       upload_file: "Upload file",
@@ -273,6 +275,7 @@ export const translations = {
       entity_connect_limit: "Entity Connect Limit",
       entity_connect_link: "Entity Connnect Link...",
       entity_checkindex:"Select test type",
+      twofa:"Enter secret string (eg: JBSWY3DPEHPK3PXP)"
     },
     options: {
       entity_connect: {
@@ -327,6 +330,7 @@ export const translations = {
       delete: "Delete",
       start: "Start",
       apply: 'Apply',
+      twofa: "Submit",
       view_profile: "View Profile",
       track_progress: "Track Progress",
       download_report: "Download Report",
@@ -375,6 +379,7 @@ export const translations = {
 
     },
     lables: {
+      twofa: "2FA Secret",
       pion_point: "Pion Points",
       pion_used: "Pion Used",
       role: "Role",
@@ -581,6 +586,7 @@ export const translations = {
       copyQr: 'Sao chép QR'
     },
     titles: {
+      twofa: "Authenticator - Lấy mã code từ chuỗi 2FA",
       request: "Yêu cầu",
       account: "Tài khoản",
       start: 'Bắt đầu bản ghi nhiệm vụ',
@@ -752,7 +758,8 @@ export const translations = {
       update_your_personal_details_below: "Cập nhật thông tin cá nhân bên dưới",
       you_have_selected: "Bạn đã chọn",
       comming_soon: "Tính năng sắp ra mắt",
-      text_confirm: "Hành động này rất quan trọng, bạn cần xác nhận qua một cửa sổ xác nhận (modal). Vui lòng nhấn một trong các nút bên dưới để tiếp tục."
+      text_confirm: "Hành động này rất quan trọng, bạn cần xác nhận qua một cửa sổ xác nhận (modal). Vui lòng nhấn một trong các nút bên dưới để tiếp tục.",
+      twofatext: "Mã đăng nhập:",
     },
     placeholders: {
       upload_file: "Tải dữ liệu lên",
@@ -799,6 +806,7 @@ export const translations = {
       entity_connect_limit: "Nhập số lượng kết nối",
       entity_connect_link: "Dán link tùy chỉnh ở đây...",
       entity_checkindex:"Dán link cần check vào đây",
+      twofa:"Nhập chuỗi secret (vd: JBSWY3DPEHPK3PXP)"
     },
     inputs: {
       entity_limit: "Giới hạn thực thể",
@@ -844,7 +852,7 @@ export const translations = {
       social: "Chăm sóc Social",
       support: "Hỗ trợ",
       account: "Tài khoản",
-      
+      twofa: "Lấy mã",
       index: "Index",
       site: "Site",
       utils: "Tiện ích",
@@ -878,6 +886,7 @@ export const translations = {
        confirm_cancel: "Huỷ",
     },
     lables: {
+      twofa: "Chuỗi mã 2FA",
       pion_point: "Điểm Pion",
       role: "Vai trò",
       pion_used: "Pion đã sử dụng",
