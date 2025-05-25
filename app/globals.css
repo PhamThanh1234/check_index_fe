@@ -5,6 +5,7 @@
   --mantine-color-body: #F5F9FF !important;
   --mantine-color-text: #414042 !important;
   --mantine-primary-color-filled: #0089CF !important;
+  --mantine-backgourdtool: #ffffff !important;
 }
 
 @media (max-width: 768px) {
@@ -22,6 +23,7 @@
 
 .bg-custom-box {
   background-color: white !important; /* Màu nền Light Mode */
+  
 }
 
 .bg-td-hover:hover {

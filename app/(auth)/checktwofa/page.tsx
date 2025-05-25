@@ -2,6 +2,7 @@
 
 import { useLocale } from "@/hooks/useLocale";
 import { translations } from "@/lib/i18n";
+import { Header } from "@/components/header"
 import { useState, useEffect, useRef } from 'react';
 import {
   Container,
@@ -11,7 +12,7 @@ import {
   Text,
   Grid,
   Box,
-  Loader,
+  
 } from '@mantine/core';
 import '@mantine/core/styles.css';
 import axios from 'axios';
@@ -20,7 +21,6 @@ const Check2Fa = () => {
   const [secret, setSecret] = useState('');
   const { locale } = useLocale();
   const [token, setToken] = useState<string | null>(null);
-  const [expireAt, setExpireAt] = useState<string | null>(null);
   const [remaining, setRemaining] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ const Check2Fa = () => {
       const diff = Math.floor((expireTime - now) / 1000);
 
       setToken(response.data.token);
-      setExpireAt(response.data.expireAt);
+      
       setRemaining(diff > 0 ? diff : 0);
     } catch (err: any) {
       if (!isAuto) {
@@ -88,6 +88,8 @@ const Check2Fa = () => {
   }, [remaining]);
 
   return (
+    <div>
+    <Header />
     <Container size="sm" py="xl">
       <Title mb="md">{translations[locale].titles.twofa}</Title>
 
@@ -125,7 +127,9 @@ const Check2Fa = () => {
         {error && <Text color="red">{error}</Text>}
       </Box>
     </Container>
+    </div>
   );
+  
 };
 
 export default Check2Fa;

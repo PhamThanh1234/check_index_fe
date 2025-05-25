@@ -11,8 +11,7 @@ import { IconAlertCircle } from '@tabler/icons-react';
 import './checkindex.css';
 import { checkIndex } from '../../api/checkindex/checkindex';
 import { IconDownload } from '@tabler/icons-react';
-import Header from '../_components/Header';
-
+import { Header } from "@/components/header"
 import * as XLSX from 'xlsx';
 
 interface ResultItem {
