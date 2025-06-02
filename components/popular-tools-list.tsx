@@ -1,25 +1,18 @@
-"use client"
+"use client";
 
-import { List, ThemeIcon, Text } from "@mantine/core"
-import { IconCircleFilled } from "@tabler/icons-react"
-import Link from "next/link"
+import { List, ThemeIcon, Text } from "@mantine/core";
+import { IconCircleFilled } from "@tabler/icons-react";
+import Link from "next/link";
 
 export function PopularToolsList() {
   const popularTools = [
     { name: "Google Index Checker", href: "/checkindex" },
-    { name: "Paraphrasing Tool", href: "#" },
-    { name: "AI Detector", href: "#" },
-    { name: "Free Grammar Checker", href: "#" },
-    { name: "Reverse Image Search", href: "#" },
-    { name: "Logo Maker", href: "#" },
-    { name: "Website SEO Score Checker", href: "#" },
-    { name: "Emojis", href: "#" },
-    { name: "Citation Generator", href: "#" },
-    { name: "AI Humanizer", href: "#" },
-  ]
+    { name: "Keyword Clustering", href: "/keywordclustering" },
+    { name: "2FA", href: "/checktwofa" },
+  ];
 
   return (
-    <List spacing="xs" >
+    <List spacing="xs">
       {popularTools.map((tool) => (
         <List.Item
           key={tool.name}
@@ -37,5 +30,5 @@ export function PopularToolsList() {
         </List.Item>
       ))}
     </List>
-  )
+  );
 }

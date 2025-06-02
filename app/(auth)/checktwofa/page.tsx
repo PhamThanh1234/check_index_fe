@@ -12,9 +12,13 @@ import {
   Text,
   Grid,
   Box,
+  CopyButton,
+  Tooltip,
+  ActionIcon,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import axios from "axios";
+import { IconCheck, IconCopy } from "@tabler/icons-react";
 
 const Check2Fa = () => {
   const [secret, setSecret] = useState("");
@@ -124,6 +128,27 @@ const Check2Fa = () => {
               <Text size="xl">
                 {translations[locale].texts.twofatext}{" "}
                 <b style={{ fontSize: "24px" }}>{token}</b>
+                <CopyButton value={`${token}`} timeout={2000}>
+                  {({ copied, copy }) => (
+                    <Tooltip
+                      label={copied ? "Copied" : "Copy"}
+                      withArrow
+                      position="right"
+                    >
+                      <ActionIcon
+                        color={copied ? "teal" : "gray"}
+                        variant="subtle"
+                        onClick={copy}
+                      >
+                        {copied ? (
+                          <IconCheck size={16} />
+                        ) : (
+                          <IconCopy size={16} />
+                        )}
+                      </ActionIcon>
+                    </Tooltip>
+                  )}
+                </CopyButton>
               </Text>
             </Grid.Col>
 

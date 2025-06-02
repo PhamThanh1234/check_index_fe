@@ -22,7 +22,7 @@ import {
   Breadcrumbs,
   Anchor,
 } from "@mantine/core";
-import { IconAlertCircle } from "@tabler/icons-react";
+import { IconAlertCircle, IconWorldSearch } from "@tabler/icons-react";
 import "./checkindex.css";
 import { checkIndex } from "../../api/checkindex/checkindex";
 import { IconDownload } from "@tabler/icons-react";
@@ -160,6 +160,12 @@ const IndexPage = () => {
     } finally {
       setLoading(false);
     }
+    setSuccessMessage(translations[locale].messages.checkindexSuccess);
+
+    // Tự động ẩn sau 5 giây
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
   };
 
   const exportToExcel = () => {
@@ -281,7 +287,17 @@ const IndexPage = () => {
                   {successMessage}
                 </Notification>
               )}
-
+              {loading && (
+                <Notification
+                  loading
+                  title="Đang kiểm tra index..."
+                  withCloseButton={false}
+                  color="blue"
+                  mt="md"
+                >
+                  Vui lòng chờ trong giây lát.
+                </Notification>
+              )}
               <Group justify="center" gap="xl" mt="md">
                 <Button
                   onClick={handleCheckIndex}
@@ -290,7 +306,7 @@ const IndexPage = () => {
                   disabled={disabled}
                   loading={loading}
                 >
-                  Check index
+                  Check index &nbsp; <IconWorldSearch />
                 </Button>
                 <Select
                   placeholder={
