@@ -27,18 +27,44 @@ const getRandomItem = (items: string[]): string =>
 const spinContentFixed = (text: string): string => {
   const fixedMap = new Map<string, string>();
 
-  const processed = text.replace(/\{\{([^{}]+)\}\}/g, (_, options) => {
-    if (!fixedMap.has(options)) {
-      const chosen = getRandomItem(options.split("|"));
-      fixedMap.set(options, chosen);
-    }
-    return fixedMap.get(options)!;
-  });
+  const doublePattern = /\[\[([^{}]+?)\]\]/;
+  const singlePattern = /\{([^{}]+?)\}/;
 
-  return processed.replace(/\{([^{}]+)\}/g, (_, options) => {
-    const variants = options.split("|");
-    return getRandomItem(variants);
-  });
+  const resolve = (str: string): string => {
+    let s = str;
+
+    while (true) {
+      const dbl = s.match(doublePattern);
+      if (dbl) {
+        const inner = dbl[1];
+        if (!fixedMap.has(inner)) {
+          const variants = inner.split("|").map((opt) => resolve(opt.trim()));
+          fixedMap.set(inner, getRandomItem(variants));
+        }
+        s = s.replace(doublePattern, fixedMap.get(inner)!);
+        continue;
+      }
+
+      const sgl = s.match(singlePattern);
+      if (sgl) {
+        const inner = sgl[1];
+        const variants = inner.split("|").map((opt) => resolve(opt.trim()));
+        s = s.replace(singlePattern, getRandomItem(variants));
+        continue;
+      }
+
+      break;
+    }
+
+    if (!s.includes("{") && s.includes("|")) {
+      const leftovers = s.split("|").map((opt) => opt.trim());
+      s = getRandomItem(leftovers);
+    }
+
+    return s;
+  };
+
+  return resolve(text);
 };
 
 const SpinContent = () => {
@@ -54,7 +80,7 @@ const SpinContent = () => {
       const result = spinContentFixed(inputText);
       setOutputText(result);
       setIsSpinning(false);
-    }, 500);
+    }, 50);
   };
 
   return (
